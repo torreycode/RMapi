@@ -1,2 +1,3 @@
 # RestfulAPI
-Creating a restful api using Mongodb
+
+This is a basic API
