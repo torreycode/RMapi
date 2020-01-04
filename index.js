@@ -1,8 +1,13 @@
-const express = require('express');
+const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
-const mongoose = require("mongoose");
-const bodyParser = require('body-parser')
 const cors = require("cors");
+
+app.use(bodyParser.json());
+
+
+
+
 
 require("dotenv/config");
 
@@ -19,16 +24,16 @@ const postsRoute = require('./routes/posts');
 app.use('/posts', postsRoute);
 
 
+const charactersRoute = require('./routes/characters')
+
+app.use('/characters', charactersRoute)
+
+
 app.get('/', (req,res) => {
     res.send('We are on home');
 });
 
 
-//connect to db
- mongoose.connect(process.env.DB_CONNECTION, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }, 
-    () => console.log("Connected to db!")
-    );
-
 
 // Listening to the server
-app.listen(3000);
+app.listen(3000, () => console.log("server running on 3000"));
