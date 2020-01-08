@@ -8,12 +8,6 @@ const charactersSchema = new Schema({
     status: String,
     species: String,
     gender: String,
-    origin: {
-        name: String
-    },
-    created: Date
 })
 
-const Character = mongoose.model("Character", charactersSchema);
-
-module.exports = Character;
+module.exports =  mongoose.model("Character", charactersSchema);

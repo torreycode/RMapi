@@ -1,17 +1,14 @@
 const mongoose = require("mongoose");
 
+
 //connect to db
 
 mongoose.Promise = Promise;
 
- mongoose.connect(process.env.DB_CONNECTION, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }, 
-    () => console.log("Connected to db!")
-    );
-
-
-
-
-
-
+mongoose.connect('mongodb://localhost/characters').then((conn) => {
+console.log(`connected to mongodb on ${conn.connections[0].name} db`)
+}).catch((err) => {
+    console.log("Not Connected to Database ERROR! ", err);
+});
 
 module.exports = mongoose;

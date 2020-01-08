@@ -3,13 +3,6 @@ const bodyParser = require("body-parser");
 const app = express();
 const cors = require("cors");
 
-app.use(bodyParser.json());
-
-
-
-
-
-require("dotenv/config");
 
 //middlewares
 app.use(cors());
@@ -17,21 +10,24 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
-//Import Routes
 
+// Middleware routes 
 const postsRoute = require('./routes/posts');
 
-app.use('/posts', postsRoute);
+app.use('/api/posts', postsRoute);
 
 
-const charactersRoute = require('./routes/characters')
+const charactersRoute = require('./routes/characters');
 
-app.use('/characters', charactersRoute)
+app.use('/api/characters', charactersRoute);
+
 
 
 app.get('/', (req,res) => {
     res.send('We are on home');
 });
+
+
 
 
 

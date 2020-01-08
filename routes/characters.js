@@ -29,7 +29,7 @@ router.post('/', async (req,res) => {
     },
     date: req.body.date
     });
-
+console.log(req.body);
     try{
    const savedCharacter = await characters.save() 
   res.json(savedCharacter);
