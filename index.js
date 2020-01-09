@@ -31,5 +31,8 @@ app.get('/', (req,res) => {
 
 
 
-// Listening to the server
-app.listen(3000, () => console.log("server running on 3000"));
+app.set("port", process.env.PORT || 8080);
+
+app.listen(app.get("port"), () => {
+  console.log(`✅ PORT: ${app.get("port")} 🌟`);
+});
